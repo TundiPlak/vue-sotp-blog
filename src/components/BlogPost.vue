@@ -1,5 +1,5 @@
 <template>
-  <div class="blog-wrapper">
+  <div class="blog-wrapper no-user">
     <div class="blog-content">
       <div>
         <h2 v-if="post.welcomeScreen">{{ post.title }}</h2>
@@ -9,22 +9,22 @@
         <router-link class="link link-light" v-if="post.welcomeScreen" to="#">
           Login/Register<Arrow class="arrow arrow-light" />
         </router-link>
-        <router-link class="link link-light" v-else to="#">
+        <router-link class="link" v-else to="#">
           View Post <Arrow class="arrow" />
         </router-link>
       </div>
-      <div class="blog-photo">
-        <img
-          v-if="post.welcomeScreen"
-          :src="require(`../assets/blogPhotos/${post.photo}.jpg`)"
-          alt=""
-        />
-        <img
-          v-else
-          :src="require(`../assets/blogPhotos/${post.blogCoverPhoto}.jpg`)"
-          alt=""
-        />
-      </div>
+    </div>
+    <div class="blog-photo">
+      <img
+        v-if="post.welcomeScreen"
+        :src="require(`../assets/blogPhotos/${post.photo}.jpg`)"
+        alt=""
+      />
+      <img
+        v-else
+        :src="require(`../assets/blogPhotos/${post.blogCoverPhoto}.jpg`)"
+        alt=""
+      />
     </div>
   </div>
 </template>
