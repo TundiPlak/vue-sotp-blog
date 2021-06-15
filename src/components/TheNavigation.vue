@@ -1,12 +1,10 @@
 <template>
   <header>
     <nav class="container">
-      <div class="branding">
-        <router-link class="header" to="{name: 'Home'}"
-          >Story of this Path</router-link
-        >
+      <div class="header-branding" @click="brandingHandler()">
+        {{ brandingText }}
       </div>
-      <div class="nav-links">
+      <div class="header-nav-links">
         <ul v-show="!mobile">
           <router-link class="link" to="#">Home</router-link>
           <router-link class="link" to="#">Blogs</router-link>
@@ -39,6 +37,7 @@ export default {
       mobile: null, // if mobile viewport or not
       mobileNav: null, //if mobilenavigation is open
       windowWidth: null,
+      brandingText: "Story of This Path",
     };
   },
 
@@ -47,6 +46,9 @@ export default {
     this.checkScreenSize();
   },
   methods: {
+    brandingHandler() {
+      this.$router.push({ name: "Home" });
+    },
     checkScreenSize() {
       this.windowWidth = window.innerWidth;
       if (this.windowWidth <= 750) {
@@ -67,12 +69,16 @@ export default {
 
 <style lang="scss" scoped>
 header {
-  background-color: #fff;
-  padding: 0 25px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  z-index: 99;
+  &-branding {
+    background-color: #fff;
+    padding: 0 25px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    z-index: 99;
+  }
+}
 
+header {
   .link {
     font-weight: 500;
     padding: 0 8px;

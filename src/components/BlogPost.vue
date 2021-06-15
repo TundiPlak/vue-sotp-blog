@@ -40,11 +40,21 @@ export default {
     },
     contentLink() {
       const { welcomeScreen } = this.post;
-      const classes = `content-link${
+      //const welcomeScreen = this.post.welcomeScreen;
+
+      /*  const classes = `content-link${
         welcomeScreen ? " content-link-light" : ""
-      }`;
+      }`; */
+      const classes = {
+        "content-link": true,
+        "content-link-light": !!welcomeScreen,
+      };
       const text = welcomeScreen ? "Login/Register" : "View Post";
-      const arrowClasses = `arrow${welcomeScreen ? " arrow-light" : ""}`;
+      //const arrowClasses = `arrow${welcomeScreen ? " arrow-light" : ""}`;
+      const arrowClasses = {
+        arrow: true,
+        "arrow-light": !!welcomeScreen,
+      };
       return {
         classes,
         text,
