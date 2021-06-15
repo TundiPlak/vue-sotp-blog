@@ -71,7 +71,7 @@ export default {
     };
   },
   computed: {
-    ...mapGetters("sampleBlogCards"),
+    ...mapGetters(["sampleBlogCards"]),
   },
   methods: {
     updatesLinkHandler() {
