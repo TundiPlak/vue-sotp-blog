@@ -1,5 +1,3 @@
 export default {
-    sampleBlogCards(state){
-        return 'hello';
-    }
+    sampleBlogCards: (state) => state.sampleBlogCards,
 } 
