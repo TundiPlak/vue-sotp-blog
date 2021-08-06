@@ -10,11 +10,17 @@ const routes = [
     path: "/",
     name: "Home",
     component: Home,
+    meta: {
+      title : 'Home'
+    }
   },
   {
     path: "/blogs",
     name: "Blogs",
     component: TheBlogs,
+    meta: {
+      title: 'Blogs'
+    }
   },
 ];
 
@@ -23,5 +29,10 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes,
 });
+
+router.afterEach((to, from) =>{
+  console.log(from, to)
+  document.title = to.meta.title
+})
 
 export default router;
